@@ -39,7 +39,7 @@ export default function Character({ data, datas }) {
             const { title, images, mal_id, chapters, status, url, scored, synopsis } = result;
             return (
               <div className='sm:flex flex-col justify-center'>
-                <a href={ url } key={ url }  target="_blank" className='flex justify-center items-center cursor-default'>
+                <a href={ url } key={ mal_id }  target="_blank" rel="noreferrer" className='flex justify-center items-center cursor-default'>
                     <img src={images.jpg.image_url} alt={`${title} Thumbnail`} key={synopsis} className='p-3 cursor-pointer transistion ml-16 duration-150 transform hover:scale-105 mr-24 md:ml-14 md:mr-36 h-[300px] w-[225px] rounded' />
                   </a>
                   <div className='flex flex-col mr-24 md:mr-20 ml-16 sm:ml-0'>
@@ -54,15 +54,15 @@ export default function Character({ data, datas }) {
           <h1 className='text-white pl-10 text-lg'>Reccomended Manga</h1>
           <div className='flex sm:flex-row flex-col'>
           {(Object.values(recdata)).map(resul => {
-            const { entry, url } = resul;
+            const { entry, url, votes } = resul;
             return (
               <div>
               <div className='flex sm:flex-none justify-center'>
-                  <Link href="/[id]" as={`/${entry.mal_id}`} className='flex justify-center items-center cursor-default'>
+                  <Link href="/[id]" as={`/${entry.mal_id}`} key={entry} className='flex justify-center items-center cursor-default'>
                     <img src={entry.images.jpg.image_url} key={url} alt={`${entry.title} Thumbnail`} className='p-3 text-center cursor-pointer transistion duration-150 transform hover:scale-105 md:ml-14 md:mr-14 h-[250px] w-[200px] rounded' />
                   </Link>
                   </div>
-                  <h3 className='break-words text-white text-center'>{entry.title}</h3>
+                  <h3 className='break-words text-white text-center' key={votes}>{entry.title}</h3>
                   </div>
             )
           })}
