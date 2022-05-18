@@ -38,7 +38,7 @@ export default function Character({ data, datas }) {
       {Object.values(data).map(result => {
             const { title, images, mal_id, chapters, status, url, scored, synopsis } = result;
             return (
-              <div className='sm:flex flex-col justify-center'>
+              <div className='sm:flex flex-col justify-center' key={synopsis}>
                 <a href={ url } key={ mal_id }  target="_blank" rel="noreferrer" className='flex justify-center items-center cursor-default'>
                     <img src={images.jpg.image_url} alt={`${title} Thumbnail`} key={synopsis} className='p-3 cursor-pointer transistion ml-16 duration-150 transform hover:scale-105 mr-24 md:ml-14 md:mr-36 h-[300px] w-[225px] rounded' />
                   </a>
@@ -56,13 +56,13 @@ export default function Character({ data, datas }) {
           {(Object.values(recdata)).map(resul => {
             const { entry, url, votes } = resul;
             return (
-              <div>
+              <div key={url}>
               <div className='flex sm:flex-none justify-center'>
-                  <Link href="/[id]" as={`/${entry.mal_id}`} key={entry} className='flex justify-center items-center cursor-default'>
+                  <a href="/[id]" as={`/${entry.mal_id}`} key={entry.title} className='flex justify-center items-center cursor-default'>
                     <img src={entry.images.jpg.image_url} key={url} alt={`${entry.title} Thumbnail`} className='p-3 text-center cursor-pointer transistion duration-150 transform hover:scale-105 md:ml-14 md:mr-14 h-[250px] w-[200px] rounded' />
-                  </Link>
+                  </a>
                   </div>
-                  <h3 className='break-words text-white text-center' key={votes}>{entry.title}</h3>
+                  <h3 className='break-words text-white text-center'>{entry.title}</h3>
                   </div>
             )
           })}

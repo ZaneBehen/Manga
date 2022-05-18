@@ -117,14 +117,12 @@ export default function Home({ data }) {
             {results.map(result => {
             const { mal_id, title, image_url } = result;
             return (
-                <Link href="/[id]" as={`/${mal_id}`} key={title} >
+                <a href={`/${mal_id}`} key={title} >
                   <div className="mr-10">
-                  <a>
-                    <img src={image_url} alt={`${name} Thumbnail`} key={mal_id} className=' grid row-span-1 text-center cursor-pointer transistion duration-150 transform hover:scale-105 mr-14 h-[292px] w-[160] mb-1 ml-[66px] rounded' />
-                  </a>
+                    <img src={image_url} alt={` Image Thumbnail`} key={mal_id} className=' grid row-span-1 text-center cursor-pointer transistion duration-150 transform hover:scale-105 mr-14 h-[292px] w-[160] mb-1 ml-[66px] rounded' />
                   <h3 className='break-words text-white text-center' key={image_url}>{ title }</h3>
                   </div>
-                </Link>
+                </a>
             )
           })}
           </div>
