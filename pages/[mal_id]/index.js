@@ -58,9 +58,9 @@ export default function Character({ data, datas }) {
             return (
               <div key={url}>
               <div className='flex sm:flex-none justify-center'>
-                  <a href="/[id]" as={`/${entry.mal_id}`} key={entry.title} className='flex justify-center items-center cursor-default'>
+                  <Link href="/[id]" as={`/${entry.mal_id}`} key={entry.title} className='flex justify-center items-center cursor-default'>
                     <img src={entry.images.jpg.image_url} key={url} alt={`${entry.title} Thumbnail`} className='p-3 text-center cursor-pointer transistion duration-150 transform hover:scale-105 md:ml-14 md:mr-14 h-[250px] w-[200px] rounded' />
-                  </a>
+                  </Link>
                   </div>
                   <h3 className='break-words text-white text-center'>{entry.title}</h3>
                   </div>
